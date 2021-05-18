@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="MixerGroup" id="{678d4dd6-bed8-4240-b1b4-97aee341bf1f}">
+		<property name="name">
+			<value>Day-Night</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{a9f63f49-1614-4940-b613-6870c5126116}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{4ad0b6b0-c7d1-4cb5-9464-7eca6a6279de}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{bdcd3c7f-9235-43f4-bd67-2f0d43c31c9a}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{a9f63f49-1614-4940-b613-6870c5126116}">
+		<relationship name="effects">
+			<destination>{2e9ffcb1-13f6-4ee2-ac2c-5d4c1138df24}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{4ad0b6b0-c7d1-4cb5-9464-7eca6a6279de}" />
+	<object class="MixerBusFader" id="{2e9ffcb1-13f6-4ee2-ac2c-5d4c1138df24}" />
+</objects>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="ParameterPreset" id="{9dded017-3bd7-4cf7-b408-63705740c634}">
+		<property name="name">
+			<value>LowPassFilterCutoff</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e35bd2ea-7248-4fbf-9651-0bec4da38a2c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ae412b81-178e-49e6-8889-56f2a2d8ef75}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ae412b81-178e-49e6-8889-56f2a2d8ef75}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

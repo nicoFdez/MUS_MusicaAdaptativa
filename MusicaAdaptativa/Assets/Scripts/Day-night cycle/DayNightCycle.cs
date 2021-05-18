@@ -4,7 +4,7 @@ using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
 
-public class ChangeParameters : MonoBehaviour
+public class DayNightCycle : MonoBehaviour
 {
     public LightingManager lightingManager;
 
@@ -40,22 +40,20 @@ public class ChangeParameters : MonoBehaviour
     {
         float timeOfDay = lightingManager.getTimeOfDay();
 
-        if((timeOfDay >= 18 || timeOfDay < 6) && dayState != DayState.Night)
+        if ((timeOfDay >= 18 || timeOfDay < 6) && dayState != DayState.Night)
         {
-            Debug.Log("Noche");
             dayState = DayState.Night;
-           
+
             day.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             night.start();
         }
-        else if((timeOfDay >=6 && timeOfDay < 18) && dayState != DayState.Day)
+        else if ((timeOfDay >= 6 && timeOfDay < 18) && dayState != DayState.Day)
         {
-            Debug.Log("Dia");
             dayState = DayState.Day;
             night.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             day.start();
         }
-        
+
     }
 
 
