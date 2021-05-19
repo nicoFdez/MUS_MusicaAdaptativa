@@ -6,18 +6,25 @@ using FMODUnity;
 
 public class UnderwaterSound : MonoBehaviour
 {
-    EventInstance underwaterFilter;
+    BoxCollider coll;
+    float topPos, bottomPos;
 
-    void Start()
+    private void Start()
     {
-        underwaterFilter = RuntimeManager.CreateInstance("snapshot:/Underwater");
+        coll = GetComponent<BoxCollider>();
+        
+        topPos = transform.position.y + coll.bounds.size.y/2;
+        bottomPos = transform.position.y - coll.bounds.size.y/ 2;
+        Debug.Log(transform.position.y);
+        Debug.Log(coll.size.y);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            underwaterFilter.start();
+            float cutoff = (other.transform.position.y - bottomPos) / (topPos - bottomPos);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("UnderwaterFilterCutoff", cutoff);
         }
     }
 
@@ -25,7 +32,7 @@ public class UnderwaterSound : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            underwaterFilter.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("UnderwaterFilterCutoff", 2);
         }
     }
 }
