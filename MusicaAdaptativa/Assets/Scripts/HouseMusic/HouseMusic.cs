@@ -11,9 +11,11 @@ public class HouseMusic : MonoBehaviour
 
     private void Start()
     {
+        //Creamos el evento que tiene la musica de la casa
         house = RuntimeManager.CreateInstance("event:/House");
     }
 
+    //Al entrar en la casa paramos las instancia de la musica del dia y de la noche y hacemos sonar la musica de la casa
     private void OnTriggerEnter(Collider other)
     {
 
@@ -27,6 +29,7 @@ public class HouseMusic : MonoBehaviour
        
     }
 
+    //Al salir de la casa paramos la musica de la casa y paramos la musica del dia o de la noche,dependiendo de la hora que sea
     private void OnTriggerExit(Collider other)
     {
 

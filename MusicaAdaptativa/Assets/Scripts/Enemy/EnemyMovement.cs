@@ -21,6 +21,8 @@ public class EnemyMovement : MonoBehaviour
    
     void Update()
     {
+        //Movemos al enemigo entre dos puntos
+
         currenTime -= Time.deltaTime;
 
         if(currenTime<=0)

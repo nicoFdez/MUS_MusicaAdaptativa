@@ -17,6 +17,8 @@ public class UnderwaterSound : MonoBehaviour
         bottomPos = transform.position.y - coll.bounds.size.y/ 2;
     }
 
+    //Mientras que el jugador este en el agua, a medida que baja mas profundo vamos cambiando el parametro global
+    //para que asi se escuche menos la musica de fondo
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -26,6 +28,7 @@ public class UnderwaterSound : MonoBehaviour
         }
     }
 
+    //Al salir del agua reestablecemos el parametro global, para que todo vuelva a estar como antes
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

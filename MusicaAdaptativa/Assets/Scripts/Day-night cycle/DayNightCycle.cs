@@ -19,8 +19,10 @@ public class DayNightCycle : MonoBehaviour
 
     void Start()
     {
+        //Creamos los eventos que tienen la musica de dia y de noche
         day = RuntimeManager.CreateInstance("event:/Day");
         night = RuntimeManager.CreateInstance("event:/Night");
+        //La musica de dia empieza a sonar al principio de la ejecucion
         day.start();
     }
 
@@ -28,9 +30,10 @@ public class DayNightCycle : MonoBehaviour
     void Update()
     {
 
+        //En función de la hora del dia hacemos que suene una musica o utra
         float timeOfDay = lightingManager.getTimeOfDay();
 
-        if ((timeOfDay >= 18 || timeOfDay < 6) && dayState != DayState.Night)
+        if ((timeOfDay >= 18 || timeOfDay < 6) && dayState != DayState.Night) //Suena la musica de noche
         {
             dayState = DayState.Night;
 
@@ -41,7 +44,7 @@ public class DayNightCycle : MonoBehaviour
             }
             
         }
-        else if ((timeOfDay >= 6 && timeOfDay < 18) && dayState != DayState.Day)
+        else if ((timeOfDay >= 6 && timeOfDay < 18) && dayState != DayState.Day) //Suena la musica de dia
         {
             dayState = DayState.Day;
             if (!inHouse)

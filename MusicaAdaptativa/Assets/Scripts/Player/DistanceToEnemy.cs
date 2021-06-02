@@ -14,12 +14,14 @@ public class DistanceToEnemy : MonoBehaviour
     float parameter;
     void Start()
     {
+        //Creamos la instancia del sonido del corazon
         health = RuntimeManager.CreateInstance("event:/HeartBeat");
         health.start();
     }
 
     void Update()
     {
+        //En funcion de la distancia al enemido vamos cambiado el parametro de este evento que controla el volumen y el pitch
         float distance = Vector3.Distance(enemyTr.position, transform.position);
 
         if (distance > maxDistance)
@@ -33,6 +35,5 @@ public class DistanceToEnemy : MonoBehaviour
         }
 
         health.setParameterByName("Health", parameter);
-
     }
 }

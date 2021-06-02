@@ -4,16 +4,11 @@ using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
 
-public class ZonaPeligrosa : MonoBehaviour
+public class DangerousZone : MonoBehaviour
 {
-    Bus danger;
     public DayNightCycle dayNight;
 
-    void Start()
-    {
-        danger = RuntimeManager.GetBus("bus:/AllEvents");
-    }
-
+    //Al entrar en la zona peligrosa bajamos un poco el pitch de los eventos que tienen la musica de dia y de noche
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -25,6 +20,7 @@ public class ZonaPeligrosa : MonoBehaviour
     
     }
 
+    //Al salir de la zona peligrosa reestablecemos el pitch de los eventos que tienen la musica de dia y de noche
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
